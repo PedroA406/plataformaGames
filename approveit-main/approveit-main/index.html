@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogos de Memorização</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Bem-vindo aos Jogos</h1>
+    </header>
+
+    <main>
+
+        <div class="glossario-card">
+            <div class="glossario-icon">📘</div>
+            <p class="moderno">
+                Durante a jornada no jogo, você encontrará diversos elementos importantes. Um
+                <span class="glossario" data-termo="NPC">NPC</span> pode oferecer missões ou informações, enquanto o
+                <span class="glossario" data-termo="HUD">HUD</span> exibe dados como saúde, energia e munição.
+                Após ser derrotado, o jogador pode
+                <span class="glossario" data-termo="Respawn">reaparecer</span> no ponto salvo anteriormente.
+                Buffs e debuffs também influenciam sua performance, como o efeito de um
+                <span class="glossario" data-termo="Buff">buff</span> temporário de força ou um
+                <span class="glossario" data-termo="Debuff">debuff</span> de lentidão.
+                Fique atento ao <span class="glossario" data-termo="Boss">boss</span> no final da fase!
+            </p>
+        </div>
+
+        <p>Escolha um jogo abaixo para começar:</p>
+        <div class="game-links">
+            <a href="terms-and-definitions/memory/index.html" class="game-card">
+                <h2>Jogo da Memória</h2>
+                <p>Combine pares de termos e definições.</p>
+            </a>
+            <a href="terms-and-definitions/association/index.html" class="game-card">
+                <h2>Jogo de Associação</h2>
+                <p>Associe termos e definições!</p>
+            </a>
+            <a href="terms-and-definitions/quiz/index.html" class="game-card">
+                <h2>Quiz</h2>
+                <p>Responda perguntas de múltipla escolha.</p>
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 - Seus Jogos de Memorização</p>
+    </footer>
+
+    <script>
+        fetch('terms-and-definitions/data/glossario.json')
+            .then(response => response.json())
+            .then(glossario => {
+                document.querySelectorAll('.glossario').forEach(el => {
+                    const termo = el.getAttribute('data-termo');
+                    const entrada = glossario.find(item => item.termo.toLowerCase() === termo.toLowerCase());
+
+                    if (entrada) {
+                        el.removeAttribute('title');
+
+                        const tooltip = document.createElement('span');
+                        tooltip.classList.add('tooltip');
+                        tooltip.textContent = entrada.definicao;
+
+                        el.appendChild(tooltip);
+
+
+                        el.addEventListener('click', e => {
+                            e.stopPropagation();
+
+                            document.querySelectorAll('.glossario.active').forEach(item => {
+                                if (item !== el) item.classList.remove('active');
+                            });
+                            el.classList.toggle('active');
+                        });
+                    }
+                });
+
+
+                document.addEventListener('click', () => {
+                    document.querySelectorAll('.glossario.active').forEach(el => el.classList.remove('active'));
+                });
+            })
+            .catch(error => console.error('Erro ao carregar glossário:', error));
+    </script>
+
+</html>

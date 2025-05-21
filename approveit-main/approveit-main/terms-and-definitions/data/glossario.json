@@ -1,0 +1,42 @@
+[
+    {
+      "termo": "NPC",
+      "definicao": "Personagem não controlado por jogador, geralmente pela IA."
+    },
+    {
+      "termo": "HUD",
+      "definicao": "Interface gráfica que mostra informações do jogo (vida, munição etc.)."
+    },
+    {
+      "termo": "Respawn",
+      "definicao": "Ato de reaparecer no jogo após morrer ou ser eliminado."
+    },
+    {
+      "termo": "Buff",
+      "definicao": "Melhoria temporária nas habilidades ou atributos de um personagem."
+    },
+    {
+      "termo": "Debuff",
+      "definicao": "Redução temporária nas habilidades ou penalidades aplicadas."
+    },
+    {
+      "termo": "Boss",
+      "definicao": "Inimigo mais forte que geralmente aparece no final de uma fase."
+    },
+    {
+      "termo": "FPS",
+      "definicao": "Frames por segundo; indica o desempenho visual do jogo."
+    },
+    {
+      "termo": "Level Design",
+      "definicao": "Planejamento e criação dos ambientes, fases e desafios de um jogo."
+    },
+    {
+      "termo": "Hitbox",
+      "definicao": "Área invisível usada para detectar colisões em jogos."
+    },
+    {
+      "termo": "Gameplay",
+      "definicao": "Experiência prática de jogar, incluindo controles e mecânicas."
+    }
+  ]
